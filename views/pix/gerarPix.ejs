@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Il tuo QR Code PIX</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .bg-azul {
+            background-color: #007bff; /* Colore blu di Bootstrap */
+        }
+        .qr-code-container {
+            padding: 20px;
+            margin-top: 30px;
+        }
+        .qr-code-img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="container qr-code-container bg-azul text-white">
+        <h2 class="text-center">Il tuo QR Code PIX</h2>
+        <div class="row justify-content-center">
+            <div class="col-md-6 text-center">
+                <% if (user) { %>
+                    <h1>Pannello Utente</h1>
+                    <!-- Altre parti del tuo pannello utente -->
+                <% } %>
+                
+                <% if (qrCodeImage) { %>
+                    <div>
+                        <h2>Il tuo QR Code</h2>
+                        <img src="data:image/png;base64, <%= qrCodeImage %>" alt="QR Code" class="qr-code-img">
+                        <h6><%= qrCodePayload %></h6>
+                    </div>
+                <% } else { %>
+                    <p>QR Code non disponibile.</p>
+                <% } %>
+                
+                <p class="mt-3">Scansiona il QR Code per effettuare il pagamento</p>
+            </div>
+        </div>
+    </div>
+  
+    <!-- Bootstrap JS e dipendenze -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.6/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

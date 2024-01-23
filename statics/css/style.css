@@ -1,0 +1,75 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+.navbar {
+  background-color: #333;
+  padding: 15px;
+  color: white;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+}
+
+#menuToggle {
+  display: block;
+  cursor: pointer;
+}
+
+#menuToggle span {
+  display: block;
+  width: 25px;
+  height: 3px;
+  margin-bottom: 5px;
+  background-color: white;
+}
+
+#menu {
+  display: none;
+  list-style-type: none;
+  padding: 0;
+  margin-top: 50px; /* Ajustar conforme a altura do navbar */
+}
+
+#menu li a {
+  color: white;
+  text-decoration: none;
+  padding: 10px;
+  display: block;
+}
+
+/* Estilos para quando o menu estiver aberto */
+.menuOpened #menu {
+  display: block;
+}
+
+@media (min-width: 600px) {
+  #menuToggle {
+      display: none;
+  }
+
+  .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 20px;
+  }
+
+  #menu {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      margin-top: 0;
+  }
+
+  #menu li {
+      margin-right: 20px;
+  }
+
+  #menu li a {
+      display: inline;
+  }
+}

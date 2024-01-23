@@ -1,0 +1,36 @@
+/* Estilos Gerais */
+body {
+    font-family: 'Arial', sans-serif;
+}
+
+/* Estilos do Sidebar */
+#sidebar-wrapper {
+    min-width: 250px;
+    background-color: #1a2a42; /* Azul escuro */
+    color: white;
+}
+
+#sidebar-wrapper .sidebar-heading {
+    padding: 0.875rem 1.25rem;
+    font-size: 1.2rem;
+    background-color: #2b3c57; /* Azul mais claro */
+}
+
+.list-group-item {
+    background-color: #1a2a42; /* Azul escuro */
+    color: white;
+    border: none;
+}
+
+.list-group-item:hover, .list-group-item:focus {
+    background-color: #b0bec5; /* Cinza claro */
+    color: #1a2a42; /* Azul escuro */
+    text-decoration: none;
+}
+
+/* Ajusta a cor do texto para links ativos */
+.list-group-item.active {
+    background-color: #b0bec5; /* Cinza claro */
+    color: #1a2a42; /* Azul escuro */
+    font-weight: bold;
+}
