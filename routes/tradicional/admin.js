@@ -2,7 +2,7 @@
 const express = require('express');
 const router = express.Router();
 const bcrypt = require('bcrypt');
-const User = require('../models/User');
+const User = require('../../models/User');
 
 // Rota para login de usuário
 router.get('/login', (req, res) => {

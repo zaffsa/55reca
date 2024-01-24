@@ -2,7 +2,7 @@
     const express = require('express');
     const router = express.Router();
     const axios = require('axios');
-    const PixQrCode = require('../models/PixQrCode');
+    const PixQrCode = require('../../models/PixQrCode');
 
 
     router.get('/qrcode', async (req, res) => {

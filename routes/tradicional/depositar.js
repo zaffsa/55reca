@@ -1,8 +1,8 @@
 // routes/auth.js
 const express = require('express');
 const router = express.Router();
-const User = require('../models/User');
-const { checkAuthentication } = require('../middleware/middleware'); // Importe o middleware
+const User = require('../../models/User');
+const { checkAuthentication } = require('../../middleware/middleware'); // Importe o middleware
 
 
 router.get('/depositar', async (req, res) => {

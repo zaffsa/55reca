@@ -2,7 +2,7 @@
 const express = require('express');
 const router = express.Router();
 const bcrypt = require('bcrypt');
-const User = require('../models/User');
+const User = require('../../models/User');
 
 // Rota para registro de usuário
 router.get('/register', (req, res) => {
@@ -11,33 +11,32 @@ router.get('/register', (req, res) => {
 // auth.js
 const { body, validationResult } = require('express-validator');
 
+
 // Rota para registro de usuário com validação
 router.post(
   '/registro',
-  // Array de regras de validação
   [
-   // body('username').not().isEmpty().withMessage('Nome de usuário é obrigatório'),
+    // body('username').not().isEmpty().withMessage('Nome de usuário é obrigatório'),
     body('email').isEmail().withMessage('E-mail inválido'),
     body('password').isLength({ min: 6 }).withMessage('A senha deve ter pelo menos 6 caracteres')
   ],
   async (req, res) => {
-    // Checar os resultados da validação
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
-      // Se houver erros, envie uma resposta com os detalhes
       return res.status(400).json({ errors: errors.array() });
     }
 
     try {
       const { username, email, password } = req.body;
 
-      // Verificação se o e-mail já existe
       const existingUser = await User.findOne({ where: { email } });
       if (existingUser) {
         return res.status(400).send('E-mail já utilizado.');
       }
 
-      const hashedPassword = await bcrypt.hash(password, 10);
+      // Gerar hash da senha com bcrypt
+      const hashedPassword = await bcrypt.hash(password, 10); // O número 10 representa o número de rounds de salt
+
       await User.create({ username, email, password: hashedPassword });
 
       res.redirect('/login');
@@ -47,6 +46,8 @@ router.post(
     }
   }
 );
+
+
 
 router.post('/logar', 
   body('email').isEmail().withMessage('Insira um endereço de e-mail válido.'),
