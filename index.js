@@ -38,7 +38,7 @@ app.use('/tower', tower);
 app.use('/', authRoutes);
 app.use('/trade/', swap)
 app.use('/pix/', gerarPix)
-app.listen($PORT, () => {
+app.listen(8080, () => {
   console.log('Servidor rodando na porta 80 :)');
 });
 //"walletId": "7837991c-ee75-4016-8f16-76b6f216724c",
